@@ -1,5 +1,5 @@
 // inicio da função do histograma
-const histograma = function (pixels) {
+const histogram = function (pixels) {
   const matrizVazia = new Array(257).fill(0);
 
   let histogramaLocal = {
