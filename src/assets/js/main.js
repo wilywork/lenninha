@@ -293,9 +293,13 @@ $(document).ready(async function () {
     setBytesImage('imagem2', grayscale(getBytesImage('imagem2')));
     setBytesImage('imagem3', grayscale(getBytesImage('imagem3')));
 
+
+    
+    // renderChartHistogramTest('chartHistogram1', ruidoGaussianoTest(null, 0, 20), config);
     etapa1_histograma();
     etapa2_ruido();
-
+    etapa3_PSNR();
+    etapa4_convulationmask();
 })
 
 async function etapa1_histograma() {
@@ -331,4 +335,48 @@ function etapa2_ruido() {
     renderChartHistogram('chartHistogram1Ruido2', histogram(getBytesImage('imagem1Ruido2')), config);
     renderChartHistogram('chartHistogram2Ruido2', histogram(getBytesImage('imagem2Ruido2')), config);
     renderChartHistogram('chartHistogram3Ruido2', histogram(getBytesImage('imagem3Ruido2')), config);
+}
+
+function etapa3_PSNR() {
+    const imageOriginalBytes = getBytesImage('imagem1');
+    const imageOriginalBytes2 = getBytesImage('imagem2');
+    const imageOriginalBytes3 = getBytesImage('imagem3');
+
+    const imageOriginalBytesRuido = getBytesImage('imagem1Ruido');
+    const imageOriginalBytes2Ruido = getBytesImage('imagem2Ruido');
+    const imageOriginalBytes3Ruido = getBytesImage('imagem3Ruido');
+
+    const imageOriginalBytesRuido2 = getBytesImage('imagem1Ruido2');
+    const imageOriginalBytes2Ruido2 = getBytesImage('imagem2Ruido2');
+    const imageOriginalBytes3Ruido2 = getBytesImage('imagem3Ruido2');
+
+    var resultado = "";
+
+    resultado += "  Jato ruido: " + PSNR(imageOriginalBytes, imageOriginalBytesRuido, 4) + "</br>";
+    resultado += "  Lena ruido: " + PSNR(imageOriginalBytes2, imageOriginalBytes2Ruido, 4) + "</br>";
+    resultado += "  Abelha ruido: " + PSNR(imageOriginalBytes3, imageOriginalBytes3Ruido, 4) + "</br>";
+
+    resultado += "  Jato muito ruido: " + PSNR(imageOriginalBytes, imageOriginalBytesRuido2, 4) + "</br>";
+    resultado += "  Lena muito ruido: " + PSNR(imageOriginalBytes2, imageOriginalBytes2Ruido2, 4) + "</br>";
+    resultado += "  Abelha muito ruido: " + PSNR(imageOriginalBytes3, imageOriginalBytes3Ruido2, 4) + "</br>";
+    
+    $('#resultadoPSNR').html(resultado);
+}
+
+function etapa4_convulationmask() {
+    const imageOriginalBytesRuido = getBytesImage('imagem1Ruido');
+    const imageOriginalBytes2Ruido = getBytesImage('imagem2Ruido');
+    const imageOriginalBytes3Ruido = getBytesImage('imagem3Ruido');
+
+    const imageOriginalBytesRuido2 = getBytesImage('imagem1Ruido2');
+    const imageOriginalBytes2Ruido2 = getBytesImage('imagem2Ruido2');
+    const imageOriginalBytes3Ruido2 = getBytesImage('imagem3Ruido2');
+
+    convulationmask(imageOriginalBytesRuido);
+    convulationmask(imageOriginalBytes2Ruido);
+    convulationmask(imageOriginalBytes3Ruido);
+
+    convulationmask(imageOriginalBytesRuido2);
+    convulationmask(imageOriginalBytes2Ruido2);
+    convulationmask(imageOriginalBytes3Ruido2);
 }

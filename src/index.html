@@ -133,16 +133,7 @@
     <div class="ui segment">
         <p>PSNR para cada imagem ruidosa</p>
         <div class="ui grid">
-            <div class="three column row">
-                <div class="column">
-                    <canvas id="imagem1RuidoPSNR" class="disabled medium ui image" height="512px" width="512px"></canvas>
-                </div>
-                <div class="column">
-                    <canvas id="imagem2RuidoPSNR" class="disabled medium ui image" height="512px" width="512px"></canvas>
-                </div>
-                <div class="column">
-                    <canvas id="imagem3RuidoPSNR" class="disabled medium ui image" height="512px" width="512px"></canvas>
-                </div>
+            <div id="resultadoPSNR" class="three column row">
             </div>
         </div>
     </div>
@@ -161,6 +152,17 @@
                     <canvas id="imagem3RuidoPSNR" class="disabled medium ui image" height="512px" width="512px"></canvas>
                 </div>
             </div>
+            <div class="three column row">
+                <div class="column">
+                    <canvas id="imagem1RuidoPSNR2" class="disabled medium ui image" height="512px" width="512px"></canvas>
+                </div>
+                <div class="column">
+                    <canvas id="imagem2RuidoPSNR2" class="disabled medium ui image" height="512px" width="512px"></canvas>
+                </div>
+                <div class="column">
+                    <canvas id="imagem3RuidoPSNR2" class="disabled medium ui image" height="512px" width="512px"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -170,6 +172,8 @@
 <script src="./assets/plugins/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="./assets/plugins/fomantic-ui/semantic.min.js"></script>
 <script src="./assets/js/filtros/grayscale.js"></script>
+<script src="./assets/js/filtros/PSNR.js"></script>
+<script src="./assets/js/filtros/convulationmask.js"></script>
 <script src="./assets/js/filtros/ruidoGaussiano.js"></script>
 <script src="./assets/js/operations/setBytesImage.js"></script>
 <script src="./assets/js/operations/convolution.js"></script>

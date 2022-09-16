@@ -1,19 +1,4 @@
 const ruidoGaussiano = function (sourceImage, mean, variance) {
-
-
-    
-
-
-
-    // for ( x = 0; x < canvas.width; x++ ) {
-    //     for ( y = 0; y < canvas.height; y++ ) {
-    //        number = generateGaussian(mean, variance);
-   
-    //        ctx.fillStyle = "rgba(" + number + "," + number + "," + number + "," + opacity + ")";
-    //        ctx.fillRect(x, y, 1, 1);
-    //     }
-    //  }
-
     for(let m = 0; m < sourceImage.height; m++) {
         for (let n = 0; n < sourceImage.width; n++) {
     
@@ -22,16 +7,26 @@ const ruidoGaussiano = function (sourceImage, mean, variance) {
     
             let col = generateGaussian(mean, variance);
 
-            if (col > 25) {
+            if (col >= 0 && col <= 255) {
                 sourceImage.data[target_i]     = col;
                 sourceImage.data[target_i + 1] = col;
                 sourceImage.data[target_i + 2] = col;
-                sourceImage.data[target_i + 3] = col;
+                // sourceImage.data[target_i + 3] = col;
             }
         }
     }
-
     return sourceImage;
+}
+
+const ruidoGaussianoTest = function (sourceImage, mean, variance) {
+
+    const matrizVazia = [];
+
+    for (let index = 0; index < 1000; index++) {
+        matrizVazia.push(generateGaussian(mean, variance));
+    }
+
+    return matrizVazia;
 }
 
 
