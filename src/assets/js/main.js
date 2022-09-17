@@ -299,7 +299,7 @@ $(document).ready(async function () {
     etapa1_histograma();
     etapa2_ruido();
     etapa3_PSNR();
-    etapa4_convulationmask();
+    etapa4_convolutionmask();
 })
 
 async function etapa1_histograma() {
@@ -363,7 +363,7 @@ function etapa3_PSNR() {
     $('#resultadoPSNR').html(resultado);
 }
 
-function etapa4_convulationmask() {
+function etapa4_convolutionmask() {
     const imageOriginalBytesRuido = getBytesImage('imagem1Ruido');
     const imageOriginalBytes2Ruido = getBytesImage('imagem2Ruido');
     const imageOriginalBytes3Ruido = getBytesImage('imagem3Ruido');
@@ -372,10 +372,10 @@ function etapa4_convulationmask() {
     const imageOriginalBytes2Ruido2 = getBytesImage('imagem2Ruido2');
     const imageOriginalBytes3Ruido2 = getBytesImage('imagem3Ruido2');
 
-    setBytesImage('imagem1RuidoCovulation', convulationmask(imageOriginalBytesRuido));
-    setBytesImage('imagem2RuidoCovulation', convulationmask(imageOriginalBytes2Ruido));
-    setBytesImage('imagem3RuidoCovulation', convulationmask(imageOriginalBytes3Ruido));
-    setBytesImage('imagem1RuidoCovulation2', convulationmask(imageOriginalBytesRuido2));
-    setBytesImage('imagem2RuidoCovulation2', convulationmask(imageOriginalBytes2Ruido2));
-    setBytesImage('imagem3RuidoCovulation2', convulationmask(imageOriginalBytes3Ruido2));
+    setBytesImage('imagem1RuidoCovulation', convolutionmask(imageOriginalBytesRuido));
+    setBytesImage('imagem2RuidoCovulation', convolutionmask(imageOriginalBytes2Ruido));
+    setBytesImage('imagem3RuidoCovulation', convolutionmask(imageOriginalBytes3Ruido));
+    setBytesImage('imagem1RuidoCovulation2', convolutionmask(imageOriginalBytesRuido2));
+    setBytesImage('imagem2RuidoCovulation2', convolutionmask(imageOriginalBytes2Ruido2));
+    setBytesImage('imagem3RuidoCovulation2', convolutionmask(imageOriginalBytes3Ruido2));
 }

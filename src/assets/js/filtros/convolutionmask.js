@@ -1,6 +1,6 @@
 
 
-const convulationmask = function (pixels) {
+const convolutionmask = function (pixels) {
     const operator = [
         1,
         1,
