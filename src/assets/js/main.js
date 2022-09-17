@@ -295,7 +295,7 @@ $(document).ready(async function () {
 
 
     
-    // renderChartHistogramTest('chartHistogram1', ruidoGaussianoTest(null, 0, 20), config);
+    // renderChartHistogramTest('chartHistogram1', ruidoGaussianoTest(null, 100, 25), config);
     etapa1_histograma();
     etapa2_ruido();
     etapa3_PSNR();
@@ -372,11 +372,10 @@ function etapa4_convulationmask() {
     const imageOriginalBytes2Ruido2 = getBytesImage('imagem2Ruido2');
     const imageOriginalBytes3Ruido2 = getBytesImage('imagem3Ruido2');
 
-    convulationmask(imageOriginalBytesRuido);
-    convulationmask(imageOriginalBytes2Ruido);
-    convulationmask(imageOriginalBytes3Ruido);
-
-    convulationmask(imageOriginalBytesRuido2);
-    convulationmask(imageOriginalBytes2Ruido2);
-    convulationmask(imageOriginalBytes3Ruido2);
+    setBytesImage('imagem1RuidoCovulation', convulationmask(imageOriginalBytesRuido));
+    setBytesImage('imagem2RuidoCovulation', convulationmask(imageOriginalBytes2Ruido));
+    setBytesImage('imagem3RuidoCovulation', convulationmask(imageOriginalBytes3Ruido));
+    setBytesImage('imagem1RuidoCovulation2', convulationmask(imageOriginalBytesRuido2));
+    setBytesImage('imagem2RuidoCovulation2', convulationmask(imageOriginalBytes2Ruido2));
+    setBytesImage('imagem3RuidoCovulation2', convulationmask(imageOriginalBytes3Ruido2));
 }
